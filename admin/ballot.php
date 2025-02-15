@@ -1,6 +1,5 @@
 <?php include 'includes/session.php'; ?>
 <?php include 'includes/header.php'; ?>
-
 <body class="hold-transition skin-blue sidebar-mini">
 <div class="wrapper">
 
@@ -8,16 +7,17 @@
   <?php include 'includes/menubar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="background-color:#F1E9D2">
+  <div class="content-wrapper" style="background-color:#F1E9D2 ">
     <!-- Content Header (Page header) -->
     <section class="content-header">
-      <h1><b>Ballot Position</b></h1>
-      <ol class="breadcrumb" style="color:black; font-size: 17px; font-family:Times">
-        <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-        <li class="active" style="color:black; font-size: 17px; font-family:Times">Dashboard</li>
+      <h1><b>
+        Ballot Position
+      </b></h1>
+      <ol class="breadcrumb" style="color:black ; font-size: 17px; font-family:Times">
+        <li><a href="#"><i class="fa fa-dashboard" ></i> Home</a></li>
+        <li class="active" style="color:black ; font-size: 17px; font-family:Times" >Dashboard</li>
       </ol>
     </section>
-
     <!-- Main content -->
     <section class="content">
       <?php
@@ -43,85 +43,79 @@
         }
       ?>
 
-      <div class="row">
-        <div class="col-xs-10 col-xs-offset-1" id="content">
-          <!-- Content dynamically loaded here -->
+      <div class="row" >
+        <div class="col-xs-10 col-xs-offset-1"  id="content">
         </div>
       </div>
+      
     </section>
+
     
   </div>
-
+    
   <?php include 'includes/footer.php'; ?>
 </div>
-
 <?php include 'includes/scripts.php'; ?>
-
 <script>
 $(function(){
-  // Fetch ballot positions when the page loads
   fetch();
 
-  // Reset checkbox or radio button
   $(document).on('click', '.reset', function(e){
     e.preventDefault();
     var desc = $(this).data('desc');
-    $('.' + desc).iCheck('uncheck');
+    $('.'+desc).iCheck('uncheck');
   });
 
-  // Move item up
   $(document).on('click', '.moveup', function(e){
     e.preventDefault();
     var id = $(this).data('id');
-    $('#' + id).animate({
-      'marginTop': "-300px"
+    $('#'+id).animate({
+      'marginTop' : "-300px"
     });
     $.ajax({
       type: 'POST',
       url: 'ballot_up.php',
-      data: {id: id},
+      data:{id:id},
       dataType: 'json',
       success: function(response){
         if(!response.error){
-          fetch(); // Re-fetch data after successful operation
+          fetch();
         }
       }
     });
   });
 
-  // Move item down
   $(document).on('click', '.movedown', function(e){
     e.preventDefault();
     var id = $(this).data('id');
-    $('#' + id).animate({
-      'marginTop': "+300px"
+    $('#'+id).animate({
+      'marginTop' : "+300px"
     });
     $.ajax({
       type: 'POST',
       url: 'ballot_down.php',
-      data: {id: id},
+      data:{id:id},
       dataType: 'json',
       success: function(response){
         if(!response.error){
-          fetch(); // Re-fetch data after successful operation
+          fetch();
         }
       }
     });
   });
+
 });
 
-// Function to fetch the latest ballot data
 function fetch(){
   $.ajax({
     type: 'POST',
     url: 'ballot_fetch.php',
     dataType: 'json',
     success: function(response){
-      $('#content').html(response).iCheck({checkboxClass: 'icheckbox_flat-green', radioClass: 'iradio_flat-green'});
+      $('#content').html(response).iCheck({checkboxClass: 'icheckbox_flat-green',radioClass: 'iradio_flat-green'});
     }
   });
 }
 </script>
-
 </body>
 </html>
