@@ -3,26 +3,24 @@
 
 <body class="hold-transition skin-blue sidebar-mini">
   <div class="wrapper">
-    
     <?php include 'includes/navbar.php'; ?>
     <?php include 'includes/menubar.php'; ?>
 
-    <!-- Content Wrapper. Contains page content -->
+    <!-- Content Wrapper -->
     <div class="content-wrapper" style="background-color:#F1E9D2">
       
-      <!-- Content Header (Page header) -->
+      <!-- Page Header -->
       <section class="content-header">
         <h1><b>Ballot Position</b></h1>
         <ol class="breadcrumb" style="color:black; font-size: 17px; font-family: Times">
           <li><a href="#"><i class="fa fa-dashboard"></i> Home</a></li>
-          <li class="active" style="color:black; font-size: 17px; font-family: Times">Dashboard</li>
+          <li class="active">Dashboard</li>
         </ol>
       </section>
 
-      <!-- Main content -->
+      <!-- Main Content Section -->
       <section class="content">
-
-        <!-- Display messages (Error or Success) -->
+        <!-- Display Error or Success Messages -->
         <?php if (isset($_SESSION['error'])): ?>
           <div class="alert alert-danger alert-dismissible">
             <button type="button" class="close" data-dismiss="alert" aria-hidden="true">&times;</button>
@@ -41,17 +39,15 @@
           <?php unset($_SESSION['success']); ?>
         <?php endif; ?>
 
-        <!-- Row for content -->
+        <!-- Dynamic Content Row -->
         <div class="row">
           <div class="col-xs-10 col-xs-offset-1" id="content">
-            <!-- Dynamic content will be loaded here -->
+            <!-- Ballot content will be loaded here -->
           </div>
         </div>
-
       </section>
-
     </div>
-    
+
     <?php include 'includes/footer.php'; ?>
   </div>
 
@@ -62,7 +58,7 @@
       // Initial fetch to load the ballot data
       fetch();
 
-      // Reset checkboxes when the reset button is clicked
+      // Reset checkboxes on reset button click
       $(document).on('click', '.reset', function(e) {
         e.preventDefault();
         var desc = $(this).data('desc');
@@ -108,7 +104,7 @@
       });
     });
 
-    // Function to fetch ballot data
+    // Fetch ballot data
     function fetch() {
       $.ajax({
         type: 'POST',
