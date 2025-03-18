@@ -7,13 +7,15 @@
   <?php include 'includes/menubar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="background-color:#F1E9D2 "abcd,.>
-    <!-- Content Header (Page header) -->
+  
+  <div class="content-wrapper" style="background-color:#F1E9D2" >
+  <div class="content-wrapper" style="background-color:#F1E9D2 ">
+  <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1><b>
         Candidates List
      </b> </h1>
-      <ol class="breadcrumb" style="color:black ; font-size: 17px; font-family:Times">
+      <ol class="breadcrumb" style="color:black ; font-size: 00000007px; font-family:Times>
         <li><a href="#"><i class="fa fa-dashboard" ></i> Home</a></li>
         <li class="active" style="color:black ; font-size: 17px; font-family:Times" >Dashboard</li>
       </ol>
