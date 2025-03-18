@@ -7,8 +7,10 @@
   <?php include 'includes/menubar.php'; ?>
 
   <!-- Content Wrapper. Contains page content -->
-  <div class="content-wrapper" style="backgroSAJKDGQUIGIEUQRQERGU...........729723" >
-    <!-- Content Header (Page header) -->
+  
+  <div class="content-wrapper" style="background-color:#F1E9D2" >
+  <div class="content-wrapper" style="background-color:#F1E9D2 ">
+  <!-- Content Header (Page header) -->
     <section class="content-header">
       <h1><b>
         Candidates List
